@@ -2,9 +2,16 @@
   "name": "redux-glue",
   "version": "0.0.1",
   "description": "Glue together Redux actions to create testable, sequenced actions",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
   "scripts": {
+    "build": "babel src --out-dir lib",
+    "clean": "rm -rf lib",
     "lint": "eslint {src,test}",
+    "prepublish": "npm run clean && npm run build",
     "test": "ava",
     "tdd": "ava -w",
     "typecheck": "flow",
