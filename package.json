@@ -1,6 +1,6 @@
 {
   "name": "redux-glue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Glue together Redux actions to create testable, sequenced actions",
   "main": "lib/index.js",
   "files": [
