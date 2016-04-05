@@ -113,8 +113,8 @@ Sometimes action creators take arguments, you can supply those as well in
 various fashions.
 
 The first way is supply arguments to the new action creator that you glued
-together. You can supply arguments to each inner action creator by passing in an
-array of arrays with each action creator's arguments.
+together. You can supply arguments to each inner action creator by passing in a
+variable number of arrays with each action creator's arguments.
 
 ```js
 // actions.js
@@ -131,7 +131,7 @@ export const sillyAdd = glue(increment, decrement);
 // myFile.js
 // =========
 store.dispatch(
-  sillyAdd([ [42], [13] ])
+  sillyAdd([42], [13])
 );
 
 // which is the same as
@@ -171,7 +171,7 @@ const sillyAdd = glue(
 // `increment` because we already called it with its arguments and produced an
 // action
 store.dispatch(
-  sillyAdd([ [13] ])
+  sillyAdd([13])
 );
 
 // which is the same as
@@ -199,13 +199,13 @@ export default createStore(
 
 ### `verifyGluedFrom`
 
-Finally, to test your glued action creators, you can use `verifyGluedFrom`.
-It takes an action produced from a glued action creator that you want to verify
-as the first argument. The second argument is an array of actions and action
+Finally, to test your glued action creators, you can use `verifyGluedFrom`.  It
+takes an action produced from a glued action creator that you want to verify as
+the first argument. The second argument is an array of actions and action
 creators that you expect it to be produced from. The third argument is an array
-of arguments that should have been passed into the glued action creator to
-create the final action. The third argument is optional if your action creator
-does not need to take any arguments.
+of array of arguments that should have been passed into the glued action creator
+to create the final action. The third argument is optional if your action
+creator does not need to take any arguments.
 
 It throws if the passed in action does not match the expected inner
 actions/action creators or expected passed-in arguments. If the action is valid,
@@ -222,7 +222,7 @@ const friendAction = seeFriend();
 const increment = (n) => ({ n, type: 'INCREMENT' });
 const decrement = (n) => ({ n, type: 'DECREMENT' });
 const sillyAdd = glue(increment, decrement);
-const addAction = sillyAdd([ [42], [13] ]);
+const addAction = sillyAdd([42], [13]);
 
 verifyGluedFrom(friendAction, [greet, hug]); // undefined, so valid
 verifyGluedFrom(friendAction, [greet]);      // throws
