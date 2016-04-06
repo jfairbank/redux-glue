@@ -352,7 +352,7 @@ isGluedFrom(
   glueAction: any,
   gluedItems: Array<GluedItem>,
   gluedArgs: Array<Array<any>> = []
-): void;
+): boolean;
 
 hasGluedAction(
   glueAction: GlueAction,
