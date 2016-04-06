@@ -1,5 +1,9 @@
 # Redux Glue
 
+[![Travis
+branch](https://img.shields.io/travis/jfairbank/redux-glue/master.svg?style=flat-square)](https://travis-ci.org/jfairbank/redux-glue)
+[![npm](https://img.shields.io/npm/v/redux-glue.svg?style=flat-square)](https://www.npmjs.com/package/redux-glue)
+
 Glue together actions to create testable, sequenced actions.
 
 ## Install
